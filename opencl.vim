@@ -398,8 +398,60 @@ syn keyword clErr CL_OUT_OF_RESOURCES
 syn keyword clErr CL_PROFILING_INFO_NOT_AVAILABLE
 syn keyword clErr CL_SUCCESS
 
+" OpenCL extensions for kernels
+" origin: http://isph.sourceforge.net/opencl.properties
+" converted by: Kalman Szabo 18-02-2010
+" types
+syn keyword clType uchar ushort uint ulong half
+syn keyword clType image2d_t image3d_t sampler_t event_t
+syn keyword clType char2 uchar2 short2 ushort2 int2 uint2 long2 ulong2 float2
+syn keyword clType char4 uchar4 short4 ushort4 int4 uint4 long4 ulong4 float4
+syn keyword clType char8 uchar8 short8 ushort8 int8 uint8 long8 ulong8 float8
+syn keyword clType char16 uchar16 short16 ushort16 int16 uint16 long16 ulong16 float16
+
+" qualifiers
+syn keyword clStorageClass __kernel kernel __global global __local local __private private __constant constant
+syn keyword clStorageClass __read_only read_only __write_only write_only
+
+" functions
+syn keyword clFunction get_work_dim get_global_size get_global_id get_local_size get_local_id get_num_groups get_group_id
+syn keyword clFunction read_imagef read_imagei read_imageui write_imagef write_imagei write_imageui
+syn keyword clFunction get_image_width get_image_height get_image_depth get_image_channel_data_type
+syn keyword clFunction get_image_channel_order get_image_dim
+syn keyword clFunction barrier mem_fence read_mem_fence write_mem_fence
+syn keyword clFunction async_work_group_copy wait_group_events prefetch
+syn keyword clFunction vec_type_hint work_group_size_hint reqd_work_group_size aligned packed endian __kernel_exec
+syn keyword clFunction vload2 vload4 vload8 vload16 vstore2 vstore4 vstore8 vstore16
+
+" maths functions
+syn keyword clFunction acos acosh acospi asin asinh asinpi atan atan2 atanh atanpi atan2pi
+syn keyword clFunction cbrt ceil copysign cos cosh cospi erfc erf exp exp2 exp10 expm1
+syn keyword clFunction fabs fdim floor fma fmax fmin fmod fract frexp hypot ilogb ldexp
+syn keyword clFunction lgamma lgamma_r log log2 log10 log1p logb mad modf nan nextafter
+syn keyword clFunction pow pown powr remainder remquo rint rootn round rsqrt sin sincos
+syn keyword clFunction sinh sinpi sqrt tan tanh tanpi tgamma trunc
+syn keyword clFunction abs abs_diff add_sat hadd rhadd clz mad_hi mad_sat max min mul_hi
+syn keyword clFunction rotate sub_sat upsample mad24 mul24 clamp degrees radians mix step
+syn keyword clFunction smoothstep sign cross dot distance length normalize fast_distance fast_length
+syn keyword clFunction fast_normalize isequal isnotequal isgreater isgreaterequal isless islessequal
+syn keyword clFunction islessgreater isfinite isinf isnan isnormal isordered isunordered
+syn keyword clFunction signbit any all bitselect select
+
+" constants
+syn keyword clConstant MAXFLOAT HUGE_VALF INFINITY NAN
+syn keyword clConstant CLK_A CLK_R CLK_RG CLK_RA CLK_RGB CLK_RGBA CLK_ARGB CLK_BGRA CLK_INTENSITY CLK_LUMINANCE
+syn keyword clConstant CLK_LOCAL_MEM_FENCE CLK_GLOBAL_MEM_FENCE
+syn keyword clConstant CLK_FILTER_NEAREST CLK_FILTER_LINEAR
+syn keyword clConstant CLK_ADDRESS_CLAMP_TO_EDGE CLK_ADDRESS_CLAMP CLK_ADDRESS_NONE CLK_ADDRESS_REPEAT
+syn keyword clConstant CLK_NORMALIZED_COORDS_TRUE CLK_NORMALIZED_COORDS_FALSE
+syn keyword clConstant CLK_SNORM_INT8 CLK_SNORM_INT16 CLK_UNORM_INT8 CLK_UNORM_INT16 CLK_UNORM_SHORT_565
+syn keyword clConstant CLK_UNORM_SHORT_555 CLK_UNORM_SHORT_101010 CLK_SIGNED_INT8 CLK_SIGNED_INT16 CLK_SIGNED_INT32
+syn keyword clConstant CLK_UNSIGNED_INT8 CLK_UNSIGNED_INT16 CLK_UNSIGNED_INT32 CLK_HALF_FLOAT CLK_FLOAT
+syn keyword clConstant __OPENCL_VERSION__ __ENDIAN_LITTLE__ __ROUNDING_MODE__ __IMAGE_SUPPORT__ __FAST_RELAXED_MATH__
+
 let b:current_syntax = "opencl"
 
+hi def link clStorageClass StorageClass
 hi def link clType     Type
 hi def link clFunction Function
 hi def link clConstant Constant
